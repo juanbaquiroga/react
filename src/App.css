@@ -1,4 +1,8 @@
-.App {
+body{
+  background-color: rgb(125, 125, 125);
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +39,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
