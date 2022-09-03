@@ -2,41 +2,41 @@ body{
   background-color: rgb(125, 125, 125);
 }
 
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header{
   display: flex;
-  flex-direction: column;
+  flex-flow: row nowrap;
+  background-color: rgba(23, 23, 23, 0.818);
+  height: 4rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 0 0 0 2rem;
 }
-
-.App-link {
-  color: #61dafb;
+.logoNav{
+  width: 3.5rem;
+  height: 3.5rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+nav{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.titleNav{
+  color: rgb(171, 171, 171);
+}
+.btnNav{
+  border-radius: 15px;
+  background-color:  rgba(233, 233, 233, 0.8);
+  padding:0.2rem 0.4rem;
+  margin: 0 0.4rem;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+}
+.userNav{
+  margin: 0 0 0 2rem;
+}
+.linkNav{
+  text-decoration: none;
+  color: rgb(171, 171, 171);
+  margin: 0 0.3rem;
+  font-weight: 600;
+}

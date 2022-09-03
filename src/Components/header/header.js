@@ -1,6 +1,6 @@
 import React from 'react';
-import './Header.css'
 import logo from '../../assets/logo.png';
+import CartWidget from './cart/CartWidget';
 
 const Header = () =>{
     return(
@@ -12,8 +12,7 @@ const Header = () =>{
                     <a href="" className='linkNav'>categoria 1</a>
                     <a href="" className='linkNav'>categoria 2</a>
                     <div className='userNav'>
-                        <a href="" className='btnNav'>login</a>
-                        <a href="" className='btnNav'>register</a>
+                        <CartWidget/>
                     </div>
                 </nav>
             </header>
