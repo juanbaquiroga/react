@@ -1,15 +1,21 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/header/header';
-import ItemListContainer from './Components/main/ItemListContainer/ItemListContainer'
-
+import ItemListContainer from './Components/Main/ItemListContainer/ItemListContainer'
+import ItemCount from './Components/Main/ItemCount/ItemCount'
 
 const App = () =>{
-    const prop='hola, bienvenido'
+    const greeting='hola, bienvenido a ecommerce'
+
+    const onAdd = (contador) =>{
+        console.log('agregaste con exito ', contador, ' items')
+    }
+
     return(
         <>
         <Header/>
-        <ItemListContainer greeting={prop}/>
+        <ItemListContainer greeting={greeting}/>
+        <ItemCount stock = {5} onAdd={onAdd} initial={1}/>
         </>
         )
 }
