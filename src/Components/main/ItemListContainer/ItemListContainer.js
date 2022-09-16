@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Products } from '../../../assets/Products';
 import ItemList from './ItemList'
-
-
-
-
+import { LinearProgress } from '@mui/material';
 
 
 const ItemListContainer = ({greeting}) =>{
@@ -32,7 +29,7 @@ const ItemListContainer = ({greeting}) =>{
         <>
             <h1>{greeting}</h1>
             {isLoading ?
-                <h1>cargando...</h1>
+                <LinearProgress color='secondary'/>
             :(products.length > 0) ?
                 <ItemList products={products}/>
             :
