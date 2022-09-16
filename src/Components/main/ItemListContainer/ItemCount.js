@@ -9,14 +9,12 @@ const ItemCount = ({stock, initial, onAdd}) =>{
         }
     }
     const restarCountador = () =>{
-        if(contador > 0){
+        if(contador > initial){
             setContador(contador - 1)
         }
     }
     const agregar = () =>{
-        if ((stock != 0) & (contador < stock)){
-            onAdd(contador)
-        }
+        onAdd(contador)
     }
     return(
         <>
