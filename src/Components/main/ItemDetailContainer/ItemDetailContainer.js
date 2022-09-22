@@ -8,7 +8,6 @@ const ItemDetailContainer = ({greeting}) =>{
     
     const [isLoading, setIsLoading] = useState(true);
     const [product, setProduct] = useState();
-    const [products, setProducts] = useState([]);
     
     const myPromise =(prod)=>{
         return new Promise((resolve, reject) => {
