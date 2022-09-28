@@ -1,45 +1,86 @@
-import React from 'react'
+import { margin } from '@mui/system'
+import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 import ItemCount from '../../Components/ItemCount'
+
 
 const Item = ({product}) =>{
     console.log(product?.id, product?.title)
 
+    const [items, setItems] = useState(0)
+    const [isButtonpPressed, setIsButtonpPressed] = useState(false);
+
     const onAdd = (contador) =>{
-        console.log('agregaste con exito ', contador, ' items')
+        console.log('agregaste con exito ', contador, product.title)
+        setIsButtonpPressed(true)
+        setItems(contador)
     }
 
     return(
-        <div style={styles.container}>
+        <div style={styles.body}>
             <h2 style={styles.title}>Detalle de producto</h2>
-            <div className='itemCard'>
-                <img className='imgCard' src={product.images[0]}/>
-                <h2 className='titleCard'>{'detalle'+ product.title}</h2>
-                <p style={styles.description}>{product.description}</p>
-                <h4 className='priceCard'>{'$'+ product.price}</h4>
-                <ItemCount stock={product?.stock} onAdd={onAdd} initial={1}/>
+            <div style={styles.container}>
+                <img style={styles.img}  src={product.images[0]}/>
+                <div style={styles.content}>
+                    <h2 style={styles.name}>{product.title}</h2>
+                    <p style={styles.description}>{product.description}</p>
+                    <h4 className='priceCard'>{'$'+ product.price}</h4>
+                    {!isButtonpPressed?(
+                        <ItemCount stock={product.stock} onAdd={onAdd} initial={1}/>
+                    ):(
+                        <Link to={'/cart'}>
+                            <button style={styles.buttonBuy}>finalizar compra</button>
+                        </Link>
+                    )}
+                </div>
             </div>
         </div>
     )
 
 }
 const styles = {
-    container: {
+    body:{
         display: 'flex',
         flexFlow:'column nowrap',
         justifyContent: 'center',
         alignItems:'center',
-        border:'solid 2px black',
-        borderRadius:'1rem',
-        margin:'0 2rem 3rem 2rem',
-        padding:'1rem',
     },
     title:{
-        fontSize:'2rem'
+        fontSize:'2rem',
+    },
+    container: {
+        display: 'flex',
+        flexFlow:'row nowrap',
+        justifyContent: 'center',
+        alignItems:'center',
+        gap:'2rem',
+        paddingRight:'2rem',
+        backgroundColor:'rgba(50,50,50,0.5)'
+    },
+    content:{
+        display:'flex',
+        flexFlow:'column nowrap',
+        alignItems:'center'
     },
     description:{
-        fontSize:'0.7rem',
+        fontSize:'1rem',
         margin:'0.7rem',
+        textAlign:'center',
+        maxWidth:'23rem'
+
+    },
+    name:{
         textAlign:'center'
+    },
+    buttonBuy:{
+        margin:'0 auto',
+        backgroundColor:'rgba(46, 46, 46, 0.71)',
+        color:'rgb(230,230,230)',
+        height:'2rem',
+        maxWidth:'10rem',
+        border:'none',
+        borderRadius:'1rem',
+
     }
 }
 export default Item;

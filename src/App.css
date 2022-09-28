@@ -2,6 +2,7 @@ body{
   background-color: rgb(245, 243, 235);
 }
 
+
 .itemCount{
   display: flex;
   flex-flow: column nowrap;
@@ -24,8 +25,9 @@ body{
 
 .addCart{
   background-color: rgb(197, 197, 197);
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 0 0 0.4rem 0.4rem;
   border: none;
+  height: 1.6rem;
 }
 .buttonCounter{
   background-color: rgb(197, 197, 197);
@@ -34,3 +36,7 @@ body{
   height: 1.5rem;
   width: 3rem;
 }
+
+
+
+

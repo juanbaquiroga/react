@@ -18,7 +18,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
     }
     return(
         <>
-            <div className='itemCount'>
+            <div style={styles.container} className='itemCount'>
                 <div className='itemCounter'>
                     <button className='buttonCounter' onClick={sumarCountador}>+</button>
                     <h1 className='counter'>{contador}</h1>
@@ -31,3 +31,9 @@ const ItemCount = ({stock, initial, onAdd}) =>{
 }
 
 export default ItemCount
+
+const styles={
+    container:{
+        minWidth:'15rem'
+    }
+}
