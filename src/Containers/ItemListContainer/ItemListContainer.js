@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { useParams} from 'react-router-dom';
-import { CircularProgress } from "@mui/material";
 import ItemList from './ItemList';
 import { LinearProgress } from '@mui/material';
 import {API} from '../../const/Api'

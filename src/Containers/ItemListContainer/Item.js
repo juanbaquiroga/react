@@ -1,8 +1,5 @@
 import React from 'react'
-import ItemCount from '../../Components/ItemCount'
 import { Link } from "react-router-dom";
-import { Button } from '@mui/material';
-import { borderRadius } from '@mui/system';
 
 const Item = ({product}) =>{
     console.log(product.id, product.title)

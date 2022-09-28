@@ -7,23 +7,6 @@ import {API} from '../../const/Api';
 
 const ItemDetailContainer = ({greeting}) =>{
 
-    // const myPromise =(prod)=>{
-    //     return new Promise((resolve, reject) => {
-    //         setTimeout(()=>{
-    //             resolve(prod)
-    //             setIsLoading(false)
-    //         },2000)
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     myPromise(Products)
-    //         .then((res)=>{
-    //             setProduct(res[1])
-    //         })
-            
-    // }, [])
-
     const { id } = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [product, setProduct] = useState([]);
