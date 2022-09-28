@@ -7,7 +7,7 @@ import { Cart } from './Containers/CartView/Cart'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 const App = () =>{
-    const greeting='hola, bienvenido a mi ecommerce'
+    const greeting='hola, bienvenido a mi E.store'
 
     const onAdd = (contador) =>{
         console.log('agregaste con exito ', contador, ' items')

@@ -19,7 +19,7 @@ const Navbar = () =>{
                 <Link to={'/'}>
                 <img style={styles.logoNav} src={logo} alt="" />
                 </Link>
-                <h2 style={styles.titleNav}>Ecommerce</h2>
+                <h2 style={styles.titleNav}>E.store</h2>
                 <div style={styles.links}>
                     <Nav categorias={categorias}/>
                     <Link to={'/cart'} style={styles.cartWidget}>
