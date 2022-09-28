@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/header/header';
-import ItemListContainer from './Components/main/ItemListContainer/ItemListContainer'
-import ItemDetailContainer from './Components/main/ItemDetailContainer/ItemDetailContainer';
-import ItemCount from './Components/main/ItemListContainer/ItemCount'
+import Navbar from './Components/Navbar/Navbar';
+import ItemListContainer from './Containers/ItemListContainer/ItemListContainer'
+import ItemDetailContainer from './Containers/ItemDetailContainer/ItemDetailContainer';
+import { Cart } from './Containers/CartView/Cart'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 const App = () =>{
-    const greeting='hola, bienvenido a ecommerce'
+    const greeting='hola, bienvenido a mi ecommerce'
 
     const onAdd = (contador) =>{
         console.log('agregaste con exito ', contador, ' items')
@@ -14,12 +15,19 @@ const App = () =>{
 
     return(
         <>
-        <Header/>
-        <ItemListContainer greeting={greeting}/>
-        <ItemCount stock = {5} onAdd={onAdd} initial={1}/>
-        <ItemDetailContainer/>
+        <BrowserRouter>
+            <Navbar/>
+            <Routes>
+                <Route path='/' element={<ItemListContainer greeting={greeting}/>}/>
+                <Route path='/category/:id' element={<ItemListContainer greeting={greeting}/>}/>
+                <Route path='/products/:id' element={<ItemDetailContainer/>}/>
+                <Route path='7cart' element={<Cart/>}/>
+            </Routes>
+        </BrowserRouter>
         </>
     )
 }
 
 export default App
+// https://usehooks.com/useLocalStorage/
+//https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage

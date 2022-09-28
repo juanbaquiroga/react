@@ -1,6 +1,6 @@
 import { fontSize, margin } from '@mui/system'
 import React from 'react'
-import ItemCount from '../ItemListContainer/ItemCount'
+import ItemCount from '../../Components/ItemCount'
 
 const Item = ({product}) =>{
     console.log(product?.id, product?.title)
@@ -13,10 +13,10 @@ const Item = ({product}) =>{
         <div style={styles.container}>
             <h2 style={styles.title}>Detalle de producto</h2>
             <div className='itemCard'>
-                <img className='imgCard' src={product?.img}/>
-                <h2 className='titleCard'>{'detalle'+ product?.title}</h2>
-                <p style={styles.description}>{product?.description}</p>
-                <h4 className='priceCard'>{'$'+ product?.price}</h4>
+                <img className='imgCard' src={product.images[0]}/>
+                <h2 className='titleCard'>{'detalle'+ product.title}</h2>
+                <p style={styles.description}>{product.description}</p>
+                <h4 className='priceCard'>{'$'+ product.price}</h4>
                 <ItemCount stock={product?.stock} onAdd={onAdd} initial={1}/>
             </div>
         </div>
