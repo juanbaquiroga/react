@@ -1,7 +1,8 @@
-import { margin } from '@mui/system'
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from '../../Components/ItemCount'
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 
 const Item = ({product}) =>{
@@ -11,9 +12,18 @@ const Item = ({product}) =>{
     const [isButtonpPressed, setIsButtonpPressed] = useState(false);
 
     const onAdd = (contador) =>{
-        console.log('agregaste con exito ', contador, product.title)
         setIsButtonpPressed(true)
         setItems(contador)
+    }
+    const notificacion = () =>{
+        Toastify({
+            text: `compraste ${items} ${product.title}`,
+            duration: 3000,
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            close: true,
+        }).showToast();
     }
 
     return(
@@ -29,7 +39,7 @@ const Item = ({product}) =>{
                         <ItemCount stock={product.stock} onAdd={onAdd} initial={1}/>
                     ):(
                         <Link to={'/cart'}>
-                            <button style={styles.buttonBuy}>finalizar compra</button>
+                            <button onClick={notificacion} style={styles.buttonBuy}>finalizar compra</button>
                         </Link>
                     )}
                 </div>
