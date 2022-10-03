@@ -1,23 +1,24 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from '../../Components/ItemCount'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
+import { Context } from '../../context/CartContext'
 
 
 const Item = ({product}) =>{
     console.log(product?.id, product?.title)
 
-    const [items, setItems] = useState(0)
     const [isButtonpPressed, setIsButtonpPressed] = useState(false);
+    const {add} = useContext(Context)
 
-    const onAdd = (contador) =>{
+    const onAdd = (counter) =>{
         setIsButtonpPressed(true)
-        setItems(contador)
+        add(product, counter)
     }
-    const notificacion = () =>{
+    const notificacion = (counter) =>{
         Toastify({
-            text: `compraste ${items} ${product.title}`,
+            text: `compraste  ${product.title}`,
             duration: 3000,
             style: {
                 background: "linear-gradient(to right, #00b09b, #96c93d)",
