@@ -52,7 +52,7 @@ const styles = {
     header:{
         display: 'flex',
         flexFlow:' row nowrap',
-        backgroundColor: 'rgba(123, 123, 123, 0.818)',
+        backgroundColor: '#c19982',
         height: '4rem',
         alignItems: 'center',
         justifyContent: 'space-between',
