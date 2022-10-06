@@ -3,6 +3,8 @@ import { useParams} from 'react-router-dom';
 import ItemList from './ItemList';
 import { LinearProgress } from '@mui/material';
 import {API} from '../../const/Api'
+import { db } from '../../firebase/firebase';
+import {getDocs, collection, quey,where} from 'firebase/firestore'
 
 
 const ItemListContainer = ({greeting}) =>{
@@ -29,6 +31,24 @@ const ItemListContainer = ({greeting}) =>{
         };
         getItems();
       }, [id]);
+
+    useEffect(()=>{
+      const productsCollection = collection(db, 'products');
+      getDocs(productsCollection)
+      .then((data)=>{
+        const lista = data.docs.map((product)=>{
+          return {
+            ...product.data(),
+            id: product.id
+          }
+        })
+        //setProducts(lista)
+        console.log(lista)
+      })
+      .finally(()=>{
+        setIsLoading(false)
+      })
+    })
 
 
     return(

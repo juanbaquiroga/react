@@ -5,7 +5,8 @@ import { CartItem } from './cartItem'
 import { border, margin } from '@mui/system'
 
 export const Cart = () => {
-    const {cart, totalAmount} = useContext(Context)
+    const {cart, totalAmount, reset} = useContext(Context)
+    console.log(cart)
     return (
         <>
             {cart.length ? (
@@ -19,8 +20,11 @@ export const Cart = () => {
                     <th style={styles.tableContent}></th>
                 </tr>
                 {cart.map((item) => <CartItem key={cart.id} product={item}/>)}
-                    <p style={styles.total}>Total: ${totalAmount}</p>
                 </table>
+                <div style={styles.finalRow}>
+                    <p style={styles.total}>Total: ${totalAmount}</p>
+                    <button style={styles.emptyCart} onClick={()=>(reset())}>vaciar carrito</button>
+                </div>
                 </>
                 ) : (
                     <>
@@ -37,7 +41,7 @@ const styles={
     table:{
         border:' solid 2px #ab846e',
         width:'90%',
-        margin:'20px 5%',
+        margin:'20px 5% 0 5%',
         borderCollapse:'collapse',
         backgroundColor: '#b68e78',
     },
@@ -55,11 +59,26 @@ const styles={
     total:{
         backgroundColor: '#b68e78',
         color:'#ffffff',
-        width:'100%',
         margin:'0',
-        padding:'7px',
         textAling:'right',
         fontWeight:'800',
         fontSize:'20px'
+    },
+    finalContent:{
+        width:'100%'
+    },
+    emptyCart:{
+        backgroundColor: '#ab846e',
+        padding:'10px 15px',
+        border:'solid 1px rgba(30, 30, 30, 0.4)',
+        borderRadius:'5px'
+    },
+    finalRow:{
+        backgroundColor: '#b68e78',
+        width:'90%',
+        margin:'0 5%',
+        padding:'10px',
+        display:'flex',
+        justifyContent:'space-between'
     }
 }

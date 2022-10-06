@@ -7,7 +7,7 @@ const CustomProvider = ({ children }) => {
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('CART')) || []);
     const [totalAmount, setTotalAmount] = useState(0)
     
-    const inCart = (id) => cart.some((product) => product.id === id);
+    const inCart = (id) => cart.some((product) => product.product.id === id);
     
     useEffect(() => {
         localStorage.setItem("CART", JSON.stringify(cart));
@@ -24,9 +24,11 @@ const CustomProvider = ({ children }) => {
     
     const add = (product, quantity) => {
         if (inCart(product.id)) {
-            setCart(cart.map (prod=>{
-                return prod.id === product.id?{...prod, quantity: prod.quantity + quantity} : prod
+            console.log('nashe')
+            setCart(cart.map ((prod)=>{
+                return prod.product.id === product.id?{...prod, quantity: prod.quantity + quantity} : prod
             }));
+            
         } else {
             setCart([...cart, { product, quantity }]);
         }
