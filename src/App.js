@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import CustomProvider from './context/CartContext';
 
 const App = () =>{
-    const greeting='hola, bienvenido a mi E.store'
+    const greeting='Hola, bienvenido a ...'
 
     
     return(

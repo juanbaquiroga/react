@@ -11,6 +11,7 @@ export const Cart = () => {
         <>
             {cart.length ? (
                 <>
+                <h1 style={styles.title}>Cart</h1>
                 <table style={styles.table}>
                 <tr style={styles.tableRow}>
                     <th style={styles.tableContent}>Producto</th>
@@ -28,7 +29,7 @@ export const Cart = () => {
                 </>
                 ) : (
                     <>
-                <h1>
+                <h1 style={styles.title}>
                     No agregaste productos, puedes ver <Link to="/">aca</Link>
                 </h1>    
                 </>
@@ -38,43 +39,47 @@ export const Cart = () => {
 }
 
 const styles={
+    title:{
+        textAlign:'center'
+    },
     table:{
-        border:' solid 2px #ab846e',
+        border:' solid 2px #fbd1b0',
         width:'90%',
         margin:'20px 5% 0 5%',
         borderCollapse:'collapse',
-        backgroundColor: '#b68e78',
+        backgroundColor: '#fef0e2',
     },
     tableRow:{
-        backgroundColor: '#b68e78',
-        height:'30px'
+        backgroundColor: '#fbd1b0',
+        height:'30px',
+        textAlign:'left'
     },
     tableContent:{
         width:'20%',
         padding:'5pxx',
         color:'#ffffff',
-        fontWeigh:'700',
+        fontWeight:'650',
+        fontSize:'18px',
         textAling:'right',
     },
     total:{
-        backgroundColor: '#b68e78',
         color:'#ffffff',
         margin:'0',
         textAling:'right',
-        fontWeight:'800',
-        fontSize:'20px'
+        fontWeight:'700',
+        fontSize:'25px'
     },
     finalContent:{
         width:'100%'
     },
     emptyCart:{
-        backgroundColor: '#ab846e',
+        backgroundColor: '#f9c197',
         padding:'10px 15px',
-        border:'solid 1px rgba(30, 30, 30, 0.4)',
+        border:'solid 1px #fbd1b0',
         borderRadius:'5px'
     },
     finalRow:{
-        backgroundColor: '#b68e78',
+        backgroundColor: '#fbd1b0',
         width:'90%',
         margin:'0 5%',
         padding:'10px',

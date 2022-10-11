@@ -4,15 +4,13 @@ import { Link } from "react-router-dom";
 const Item = ({product}) =>{
     console.log(product.id, product.title)
 
-    const onAdd = (contador) =>{
-        console.log('agregaste con exito ', contador, ' items')
-    }
+    
 
     return(
         <div style={styles.itemCard}>
-            <img  style={styles.imgCard} src={product.images[0]}/>
+            <img  style={styles.imgCard} src={product.image}/>
             <h2 style={styles.titleCard}>{product.title}</h2>
-            <h4 className='priceCard'>{'$'+product.price}</h4>
+            <h4 style={styles.priceCard}>{'$'+product.price}</h4>
             <Link to={`/products/${product.id}`}>
                 <button style={styles.detailBtn}>
                     Ver Detalles
@@ -29,28 +27,40 @@ const styles={
     imgCard:{
         width: '15rem',
         height: '15rem',
-        objectFit:'cover',
-        borderRadius: '1rem 1rem 0 0',
+        borderRadius: '.5rem .5rem 0 0',
         margin:'0',
+        objectFit:'cover'
     },
     itemCard:{
-        maxWidth:' 15rem',
-        borderRadius: '1rem',
-        backgroundColor:'rgba(33, 33, 33, 0.362)' ,
+        Width:' 17rem',
+        borderRadius: '.5rem',
+        backgroundColor:'#fffffb',
+        boxShadow:'0px 0px 20px 10px rgba(0,0,0,0.05)',
+        display:'flex',
+        flexFlow:'column nowrap',
+        justifyContent:'space-between',
+        height:'350px'
     },
     titleCard:{
-        fontSize: '1.2rem',
+        fontSize: '20px',
+        fontWeight:'150',
         margin: '0',
         height: '2rem',
+        textAlign:'center'
     },
     detailBtn:{
         width:'100%',
         height:'2rem',
-        color:'rgb(270,270,270)',
-        fontSize:'1rem',
-        fontWeight:'600',
-        textDecoration:'none',
-        borderRadius:'0 0 1rem 1rem',
-        backgroundColor:'rgba(44,44,44,0.8)'
+        color:'#ffffff',
+        fontSize:'15px',
+        fontWeight:'500',
+        border:'none',
+        borderRadius:'0 0 .5rem .5rem',
+        backgroundColor:'#f9c197'
+    },
+    priceCard:{
+        fontSize:'15px',
+        textAlign:'right',
+        padding:'0 7px 0 0'
     }
 };

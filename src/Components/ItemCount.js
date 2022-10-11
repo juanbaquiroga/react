@@ -36,6 +36,7 @@ const styles={
         display: 'flex',
         flexFlow: 'column nowrap',
         maxWidth: '100%',
+        margin:'15px 0 0 0'
     },
     itemCounter:{
         height: '2rem',
@@ -45,20 +46,20 @@ const styles={
         alignItems: 'center',
         padding: '0.4rem',
         borderRadius: '0.4rem 0.4rem 0 0',
-        backgroundColor: 'rgba(46, 46, 46, 0.71)',
+        backgroundColor: '#fbd1b0',
     },
     counter:{
         fontSize: '1.5rem',
         margin: '0',
     },
     buttonAdd:{
-        backgroundColor: 'rgb(197, 197, 197)',
+        backgroundColor: '#fffffb',
         borderRadius: '0 0 0.4rem 0.4rem',
         border: 'none',
         height: '1.6rem',
     },
     buttonCounter:{
-        backgroundColor: 'rgb(197, 197, 197)',
+        backgroundColor: '#fffffb',
         borderRadius: '0.4rem',
         border: 'none',
         height: '1.5rem',

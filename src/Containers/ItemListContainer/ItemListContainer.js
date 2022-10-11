@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { useParams} from 'react-router-dom';
 import ItemList from './ItemList';
 import { LinearProgress } from '@mui/material';
-import {API} from '../../const/Api'
 import { db } from '../../firebase/firebase';
-import {getDocs, collection, quey,where} from 'firebase/firestore'
+import {getDocs, collection, query,where} from 'firebase/firestore'
 
 
 const ItemListContainer = ({greeting}) =>{
@@ -15,26 +14,11 @@ const ItemListContainer = ({greeting}) =>{
     const [error, setError] = useState(false);
 
 
-    useEffect(() => {
-        const url = id ? `${API.CATEGORY}${id}` : API.LIST;
-        const getItems = async () => {
-          try {
-            const respuesta = await fetch(url);
-            const data = await respuesta.json();
-            setProducts(data.products);
-          } catch (err) {
-            console.error(err);
-            setError(true);
-          } finally {
-            setIsLoading(false);
-          }
-        };
-        getItems();
-      }, [id]);
-
     useEffect(()=>{
       const productsCollection = collection(db, 'products');
-      getDocs(productsCollection)
+      const category = query(productsCollection, where("category", "==", `${id}`));
+      const url = id ? category : productsCollection
+      getDocs(url)
       .then((data)=>{
         const lista = data.docs.map((product)=>{
           return {
@@ -42,13 +26,17 @@ const ItemListContainer = ({greeting}) =>{
             id: product.id
           }
         })
-        //setProducts(lista)
+        setProducts(lista)
         console.log(lista)
+      })
+      .catch ((err)=>{
+        console.error(err);
+        setError(true);
       })
       .finally(()=>{
         setIsLoading(false)
       })
-    })
+    },[id])
 
 
     return(

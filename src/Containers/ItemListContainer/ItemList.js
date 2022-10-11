@@ -20,5 +20,6 @@ const styles={
         display: 'flex',
         flexFlow: 'row wrap',
         gap: '1rem',
+        padding:'30px'
     },
 }

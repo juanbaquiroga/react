@@ -22,16 +22,18 @@ const styles ={
         with:'20%',
         fontWeigh:'500',
         padding:'5px 7px',
+        textAling:'right'
     },
     tableRow:{
-        backgroundColor: '#c19982',
-        borderBottom:'solid 2px #ab846e'
+        backgroundColor: '#fbd1b0',
+        borderBottom:'solid 2px #f9c197'
     },
     buttonRemove:{
         border:'none',
         background:'none'
     },
     tdRemove:{
-        backgroundColor:'#ab846e'
+        backgroundColor:'#f9c197',
+        padding:'0 10px'
     }
 }
