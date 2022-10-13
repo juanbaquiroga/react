@@ -1,10 +1,9 @@
 import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from '../../Components/ItemCount'
-import Toastify from 'toastify-js'
-import "toastify-js/src/toastify.css"
+
 import { Context } from '../../context/CartContext'
-import { height, padding } from '@mui/system'
+
 
 
 const Item = ({product}) =>{
@@ -17,16 +16,7 @@ const Item = ({product}) =>{
         setIsButtonpPressed(true)
         add(product, counter)
     }
-    const notificacion = (counter) =>{
-        Toastify({
-            text: `compraste  ${product.title}`,
-            duration: 3000,
-            style: {
-                background: "linear-gradient(to right, #00b09b, #96c93d)",
-            },
-            close: true,
-        }).showToast();
-    }
+    
 
     return(
         <div style={styles.body}>
@@ -38,10 +28,10 @@ const Item = ({product}) =>{
                     <div style={styles.buy}>
                         <h4>{'$'+ product.price}</h4>
                             {!isButtonpPressed?(
-                                <ItemCount stock={product.stock} onAdd={onAdd} initial={1}/>
+                                <ItemCount  stock={product.stock} onAdd={onAdd} initial={1}/>
                                 ):(
                                     <Link to={'/cart'}>
-                                    <button onClick={notificacion} style={styles.buttonBuy}>finalizar compra</button>
+                                    <button  style={styles.buttonBuy}>finalizar compra</button>
                                 </Link>
                             )}
                     </div>
@@ -62,13 +52,16 @@ const styles = {
     },
     
     img:{
-        width:'450px'
+        width:'450px',
+        borderRadius:' 10px 0 0 10px',
     },
     container: {
         display: 'flex',
         flexFlow:'row nowrap',
         justifyContent: 'center',
+        borderRadius:'10px',
         gap:'2rem',
+        boxShadow:'0px 0px 20px 10px rgba(0,0,0,0.066)',
         paddingRight:'2rem',
         backgroundColor:'#fef0e2'
     },

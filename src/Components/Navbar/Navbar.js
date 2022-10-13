@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo_blanco.PNG';
 import CartWidget from './cart/CartWidget';
 import { Nav } from './Nav/Nav';
 import { Link } from 'react-router-dom'
@@ -52,7 +52,6 @@ const styles = {
     },
     logoNav:{
         width: '3.5rem',
-        height: '3.5rem',
     },
     header:{
         display: 'flex',

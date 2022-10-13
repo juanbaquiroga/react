@@ -19,6 +19,7 @@ const styles={
     itemContainer:{
         display: 'flex',
         flexFlow: 'row wrap',
+        justifyContent:'center',
         gap: '1rem',
         padding:'30px'
     },

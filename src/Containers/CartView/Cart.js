@@ -1,12 +1,19 @@
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import { Context } from '../../context/CartContext'
 import {Link} from 'react-router-dom'
 import { CartItem } from './cartItem'
-import { border, margin } from '@mui/system'
+import Swal from 'sweetalert2';
+import {db} from '../../firebase/firebase'
+import { collection, addDoc, serverTimestamp, doc, updateDoc } from 'firebase/firestore'
+
 
 export const Cart = () => {
     const {cart, totalAmount, reset} = useContext(Context)
+
     console.log(cart)
+    const notificacion = () =>{
+        
+    }
     return (
         <>
             {cart.length ? (
@@ -24,7 +31,12 @@ export const Cart = () => {
                 </table>
                 <div style={styles.finalRow}>
                     <p style={styles.total}>Total: ${totalAmount}</p>
-                    <button style={styles.emptyCart} onClick={()=>(reset())}>vaciar carrito</button>
+                    <div>
+                        <button style={styles.buyCart} onClick={()=>(notificacion())}>comprar carrito</button>
+                        <button style={styles.buyCart}><Link to="/checkout">comprar</Link></button>
+                        <button style={styles.emptyCart} onClick={()=>(reset())}>vaciar carrito</button>
+                    </div>
+                    
                 </div>
                 </>
                 ) : (
@@ -74,6 +86,12 @@ const styles={
     },
     emptyCart:{
         backgroundColor: '#f9c197',
+        padding:'10px 15px',
+        border:'solid 1px #fbd1b0',
+        borderRadius:'5px'
+    },
+    buyCart:{
+        backgroundColor: '#fce0c9',
         padding:'10px 15px',
         border:'solid 1px #fbd1b0',
         borderRadius:'5px'

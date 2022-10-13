@@ -3,9 +3,10 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import ItemListContainer from './Containers/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './Containers/ItemDetailContainer/ItemDetailContainer';
-import { Cart } from './Components/CartView/Cart'
+import { Cart } from './Containers/CartView/Cart'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import CustomProvider from './context/CartContext';
+import CheckOut from './Containers/CartView/Checkout';
 
 const App = () =>{
     const greeting='Hola, bienvenido a ...'
@@ -21,6 +22,7 @@ const App = () =>{
                     <Route path='/category/:id' element={<ItemListContainer greeting={greeting}/>}/>
                     <Route path='/products/:id' element={<ItemDetailContainer/>}/>
                     <Route path='/cart' element={<Cart/>}/>
+                    <Route path='/checkout' element={<CheckOut/>}/>
                 </Routes>
             </CustomProvider>
         </BrowserRouter>
