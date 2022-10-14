@@ -9,7 +9,9 @@ const Item = ({product}) =>{
     return(
         <div style={styles.itemCard}>
             <img  style={styles.imgCard} src={product.image}/>
-            <h2 style={styles.titleCard}>{product.title}</h2>
+            {product.stock !== 0?
+                <h2 style={styles.titleCard}>{product.title}</h2>
+            :   <h2 style={styles.titleStock}>Sin stock</h2>}
             <h4 style={styles.priceCard}>{'$'+product.price}</h4>
             <Link to={`/products/${product.id}`}>
                 <button style={styles.detailBtn}>
@@ -44,6 +46,14 @@ const styles={
     titleCard:{
         fontSize: '20px',
         fontWeight:'150',
+        margin: '0',
+        height: '2rem',
+        textAlign:'center'
+    },
+    titleStock:{
+        color:'#f9c197',
+        fontSize: '20px',
+        fontWeight:'350',
         margin: '0',
         height: '2rem',
         textAlign:'center'

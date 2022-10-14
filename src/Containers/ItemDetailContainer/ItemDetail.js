@@ -27,13 +27,17 @@ const Item = ({product}) =>{
                     <p style={styles.description}>{product.description}</p>
                     <div style={styles.buy}>
                         <h4>{'$'+ product.price}</h4>
-                            {!isButtonpPressed?(
+                        {product.stock !== 0?(
+                            !isButtonpPressed?(
                                 <ItemCount  stock={product.stock} onAdd={onAdd} initial={1}/>
                                 ):(
                                     <Link to={'/cart'}>
                                     <button  style={styles.buttonBuy}>finalizar compra</button>
                                 </Link>
-                            )}
+                            )
+                        ):(
+                            <h1>sin stock</h1>
+                        )}
                     </div>
                 </div>
             </div>
