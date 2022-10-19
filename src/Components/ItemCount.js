@@ -1,5 +1,5 @@
 import React, {useState}from 'react';
-import Toastify from 'toastify-js'
+import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css"
 
 const ItemCount = ({stock, initial, onAdd}) =>{
@@ -17,10 +17,12 @@ const ItemCount = ({stock, initial, onAdd}) =>{
     }
     const notificacion = () =>{
         Toastify({
-            text: `agregasdo al carrito`,
+            text: `agregaste ${counter} producto/s al carrito`,
             duration: 3000,
             style: {
-                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                background: "rgba(99, 99, 102, 0.9)",
+                color:'white',
+                borderRadius: '15px',
             },
             close: true,
         }).showToast();
@@ -34,7 +36,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
                     <h1 style={styles.counter}>{counter}</h1>
                     <button style={styles.buttonCounter}  onClick={substract}>-</button>
                 </div>
-                <button style={styles.buttonAdd} onClick={() =>{onAdd(counter)}}>agregar al carrito</button>
+                <button style={styles.buttonAdd} onClick={() =>{onAdd(counter); notificacion()}}>agregar al carrito</button>
             </div>
         </>
     )

@@ -17,14 +17,11 @@ const CustomProvider = ({ children }) => {
             total += product.quantity * product.product.price;
         })
         setTotalAmount(total);
-        console.log(cart)
-        console.log(totalAmount)
     }, [cart])
     
     
     const add = (product, quantity) => {
         if (inCart(product.id)) {
-            console.log('nashe')
             setCart(cart.map ((prod)=>{
                 return prod.product.id === product.id?{...prod, quantity: prod.quantity + quantity} : prod
             }));

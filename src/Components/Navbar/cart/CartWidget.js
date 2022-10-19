@@ -1,7 +1,6 @@
 import React,{ useContext, useState, useEffect} from 'react';
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import { Context } from '../../../context/CartContext';
-import { height, padding } from '@mui/system';
 
 
 const CartWidget = () =>{
@@ -17,10 +16,10 @@ const CartWidget = () =>{
     }, [cart]);
     return(
         <>
-        <div style={styles.cartWidget}>
-        {cart.length?(<p style={styles.cartQty}>{total}</p>):null}
-        <ShoppingCartTwoToneIcon fontSize="large"/>
-        </div>
+            <div style={styles.cartWidget}>
+                {cart.length?(<p style={styles.cartQty}>{total}</p>):null}
+                <ShoppingCartTwoToneIcon fontSize="large"/>
+            </div>
         </>
     )
 }

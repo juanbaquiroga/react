@@ -15,9 +15,11 @@ const Navbar = () =>{
             <header style={styles.header}>
                 <div style={styles.home}>
                     <Link to={'/'}>
-                    <img style={styles.logoNav} src={logo} alt="" />
+                        <img style={styles.logoNav} src={logo} alt="" />
                     </Link>
-                    <h2 style={styles.titleNav}>Juanba</h2>
+                    <Link to={'/'} style={styles.linkNav}>
+                        <h2 style={styles.titleNav}>Juanba</h2>
+                    </Link>
                 </div>
                 <div style={styles.links}>
                     <Nav categorias={categorias}/>
@@ -37,7 +39,7 @@ const styles = {
         display:'flex',
         flexFlow:'row nowrap',
         alignItems:'center',
-        gap:'20px'
+        gap:'5px'
     },
     links: {
         display:'flex',
@@ -47,8 +49,13 @@ const styles = {
         margin: '0 0 0 2rem',
         color: '#fffffb'
     },
+    linkNav: {
+        textDecoration:'none',
+    },   
     titleNav:{
         color: 'rgb(271, 271, 271)',
+        fontSize: '30px',
+        fontWeight: '200'
     },
     logoNav:{
         width: '3.5rem',

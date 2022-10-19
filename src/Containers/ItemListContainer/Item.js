@@ -2,10 +2,6 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 const Item = ({product}) =>{
-    console.log(product.id, product.title)
-
-    
-
     return(
         <div style={styles.itemCard}>
             <img  style={styles.imgCard} src={product.image}/>

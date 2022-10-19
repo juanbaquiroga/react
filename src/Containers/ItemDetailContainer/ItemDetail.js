@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from '../../Components/ItemCount'
-
 import { Context } from '../../context/CartContext'
 
 
@@ -19,6 +18,7 @@ const Item = ({product}) =>{
     
 
     return(
+        !product?(<h1>hola</h1>):(
         <div style={styles.body}>
             <div style={styles.container}>
                 <img style={styles.img}  src={product.image}/>
@@ -42,7 +42,7 @@ const Item = ({product}) =>{
                 </div>
             </div>
         </div>
-    )
+        ))
 
 }
 const styles = {
