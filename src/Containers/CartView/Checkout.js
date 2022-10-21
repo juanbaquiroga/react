@@ -2,11 +2,11 @@ import React, { useState, useContext, Fragment } from "react";
 import {Context} from '../../context/CartContext'
 import {db} from '../../firebase/firebase'
 import {collection, addDoc, serverTimestamp, doc, updateDoc} from 'firebase/firestore'
-
+import Toastify from "toastify-js";
 
 const Checkout = ()=>{
     const{totalAmount, cart, reset,}= useContext(Context)
-    const [client, setClient] = useState({name:'',email:'',phone:''})
+    const [client, setClient] = useState({})
     const [saleId, setSaleId] = useState('')
     
     const clientData = (e)=>{
@@ -18,24 +18,54 @@ const Checkout = ()=>{
     
     const endBuy=(e)=>{
         e.preventDefault ()
-        if(Object.values(client).length !==3){
+        if(Object.values(client).length !==4){
+            Toastify({
+                text: "Por favor rellene los todos los datos del formulario",
+                duration: 5000,
+                style: {
+                    background: "rgba(180, 49, 49, 0.9)",
+                    color:'white',
+                    borderRadius: '15px',
+                    padding: '20px',
+                },
+                gravity: "top",
+                position:"center",
+                close: true,
+            }).showToast();
         }else{
-            const sellsCollection = collection (db, "sells")
-            addDoc (sellsCollection,{
-            client,
-            items: cart,
-            date: serverTimestamp(),
-            total: `$${totalAmount}`
-        })
-        .then(result=>{
-            setSaleId(result.id); 
-            console.log('hola')
-            console.log(cart)
-            cart.forEach(producto => {
-                updateStock(producto)
-            });
-            reset()
-        })}
+            if(client.email === client.email2){
+                const sellsCollection = collection (db, "sells")
+                addDoc (sellsCollection,{
+                client:{name:client.name, email:client.email, phone:client.phone},
+                items: cart,
+                total: `$${totalAmount}`,
+                date: serverTimestamp(),
+                })
+                .then(result=>{
+                    setSaleId(result.id); 
+                    console.log('hola')
+                    console.log(cart)
+                    cart.forEach(producto => {
+                        updateStock(producto)
+                    });
+                    reset()
+                })
+            }else{
+                Toastify({
+                    text: `Los emails introducidos no coinciden`,
+                    duration: 5000,
+                    style: {
+                        background: "rgba(180, 49, 49, 0.9)",
+                        color:'white',
+                        borderRadius: '15px',
+                        padding:'20px'
+                    },
+                    gravity: "top",
+                    position:"center",
+                    close: true,
+                }).showToast();    
+            }
+        }   
     }
     
     const updateStock =(producto)=>{
@@ -46,7 +76,7 @@ const Checkout = ()=>{
     return(
         <>
         <div style={styles.container}>
-            <Fragment>
+            <>
             {!saleId ?
                 <div style={styles.container2}>
                     <h2>¡Casi terminamos!</h2>
@@ -55,6 +85,7 @@ const Checkout = ()=>{
                             <input style={styles.input} type="text" placeholder="Nombre" name="name" onChange={clientData} value={client.name}></input>
                             <input style={styles.input} type="number" placeholder="Telefono" name="phone" onChange={clientData} value={client.phone}></input>
                             <input style={styles.input} type="email" placeholder="Email" name="email" onChange={clientData} value={client.email}></input>
+                            <input style={styles.input} type="email" placeholder="Email" name="email2" onChange={clientData} value={client.email2}></input>
                         <button style={styles.button}>Enviar orden</button>
                     </form>
                 </div>
@@ -64,7 +95,7 @@ const Checkout = ()=>{
                     <h4>Su orden de compra es : {saleId}</h4>
                 </div> 
             }
-            </Fragment>
+            </>
         </div>
     </>
     )

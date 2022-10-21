@@ -6,10 +6,10 @@ import { db } from '../../firebase/firebase';
 import {doc, getDoc, collection} from 'firebase/firestore'
 
 
-const ItemDetailContainer = ({greeting}) =>{
+const ItemDetailContainer = () =>{
 
     const { id } = useParams();
-    const [isLoading, setIsLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [product, setProduct] = useState([]);
     const [error, setError] = useState(false);
 
@@ -27,15 +27,14 @@ const ItemDetailContainer = ({greeting}) =>{
           setError(true);
         })
         .finally(()=>{
-          setIsLoading(false)
+          setLoading(false)
         })
       },[id])
 
     return(
         <>
-            <h1>{greeting}</h1>
-            {isLoading ?(
-                <LinearProgress color='secondary'/>
+            {loading ?(
+                <LinearProgress color='inherit'/>
             ):error? (
                 <h1>Ocurrio un error</h1>
             ):(

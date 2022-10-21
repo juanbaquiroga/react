@@ -6,7 +6,6 @@ import { Context } from '../../context/CartContext'
 
 
 const Item = ({product}) =>{
-    console.log(product?.id, product?.title)
 
     const [isButtonpPressed, setIsButtonpPressed] = useState(false);
     const {add} = useContext(Context)
@@ -18,7 +17,7 @@ const Item = ({product}) =>{
     
 
     return(
-        !product?(<h1>hola</h1>):(
+        Object.values(product).length === 1?(<h1>El producto no existe</h1>):(
         <div style={styles.body}>
             <div style={styles.container}>
                 <img style={styles.img}  src={product.image}/>

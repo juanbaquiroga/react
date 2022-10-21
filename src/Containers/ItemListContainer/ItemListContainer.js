@@ -9,7 +9,7 @@ import {getDocs, collection, query,where} from 'firebase/firestore'
 const ItemListContainer = ({greeting}) =>{
     
     const { id } = useParams();
-    const [isLoading, setIsLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
 
@@ -33,7 +33,7 @@ const ItemListContainer = ({greeting}) =>{
         setError(true);
       })
       .finally(()=>{
-        setIsLoading(false)
+        setLoading(false)
       })
     },[id])
 
@@ -41,9 +41,9 @@ const ItemListContainer = ({greeting}) =>{
     return(
         <>
             <h1>{greeting}</h1>
-            {isLoading ?(
+            {loading ?(
               <>
-                <LinearProgress />
+                <LinearProgress color='inherit'/>
               </>
             ):error ?(
                 <h1>'ocurrio un error'</h1>

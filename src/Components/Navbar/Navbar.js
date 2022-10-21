@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../assets/logo_blanco.PNG';
 import CartWidget from './cart/CartWidget';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { Nav } from './Nav/Nav';
 import { Link } from 'react-router-dom'
 
@@ -21,7 +22,9 @@ const Navbar = () =>{
                         <h2 style={styles.titleNav}>Juanba</h2>
                     </Link>
                 </div>
+
                 <div style={styles.links}>
+                    <Link to={'/order/'} style={styles.Order}><SearchRoundedIcon/>Buscar orden</Link>
                     <Nav categorias={categorias}/>
                     <Link to={'/cart'} style={styles.cartWidget}>
                         <CartWidget/>
@@ -44,9 +47,17 @@ const styles = {
     links: {
         display:'flex',
         flexFlow:'row nowrap',
+        alignItems:'center',
+        gap:'15px'
+    },
+    Order:{
+        textDecoration:'none',
+        color: '#fffffb',
+        fontWeight:'300',
+        fontSize: '22px',
+        display:'flex',
     },
     cartWidget:{
-        margin: '0 0 0 2rem',
         color: '#fffffb'
     },
     linkNav: {
