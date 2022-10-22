@@ -1,8 +1,6 @@
-import React, {useContext, useState} from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 
 const Order =({order})=>{
-    console.log(order)
     return(
         <div style={styles.body}>
             <h1 style={styles.title}>orden de compra</h1>

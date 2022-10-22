@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Item = ({product}) =>{
     return(
         <div style={styles.itemCard}>
-            <img  style={styles.imgCard} src={product.image}/>
+            <img  style={styles.imgCard} src={product.image} alt={product.title}/>
             {product.stock !== 0?
                 <h2 style={styles.titleCard}>{product.title}</h2>
             :   <h2 style={styles.titleStock}>Sin stock</h2>}

@@ -20,7 +20,7 @@ const Item = ({product}) =>{
         Object.values(product).length === 1?(<h1>El producto no existe</h1>):(
         <div style={styles.body}>
             <div style={styles.container}>
-                <img style={styles.img}  src={product.image}/>
+                <img style={styles.img}  src={product.image} alt={product.title}/>
                 <div style={styles.content}>
                     <h2 style={styles.name}>{product.title}</h2>
                     <p style={styles.description}>{product.description}</p>
