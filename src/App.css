@@ -9,3 +9,74 @@ body{
   
 }
 
+/* =================================================================*/
+/*     ESTILOS HEADER     ==========================================*/
+/* =================================================================*/
+.cartWidget{
+  display: flex;
+  align-items: flex-end;
+  color:#fffffb
+}
+.cartQty{
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 100%;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  text-decoration: none;
+}
+.homeLink{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 5px;
+}
+.linksNav{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap:15px;
+}
+.categories{
+  display: flex;
+  flex-flow: row nowrap;
+
+}
+.categoryLink{
+  padding: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.orderBtn{
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 300;
+  color: #fffffb;
+  display: flex;
+}
+.linkNav{
+  text-decoration: none;
+}
+.titleNav{
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 200;
+}
+.titleNav:hover{
+  color: #5a5a5a;
+  cursor: pointer;
+}
+.logoNav{
+  width: 55px;
+}
+.header{
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #f9c197;
+  height: 64px;
+  align-items: center;
+  justify-content: space-between;
+}

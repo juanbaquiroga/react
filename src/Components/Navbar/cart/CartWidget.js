@@ -16,25 +16,11 @@ const CartWidget = () =>{
     }, [cart]);
     return(
         <>
-            <div style={styles.cartWidget}>
-                {cart.length?(<p style={styles.cartQty}>{total}</p>):null}
+            <div className='cartWidget' >
+                {cart.length?(<p className='cartQty'>{total}</p>):null}
                 <ShoppingCartTwoToneIcon fontSize="large"/>
             </div>
         </>
     )
 }
 export default CartWidget
-const styles={
-    cartWidget:{
-        display:'flex',
-        alignItems:'flex-end'
-    },
-    cartQty:{
-        backgroundColor: '#ffffff',
-        color:'rgb(32,32,32',
-        borderRadius:'100%',
-        width:'23px',
-        height:'23px',
-        textAlign:'center',
-    }
-}

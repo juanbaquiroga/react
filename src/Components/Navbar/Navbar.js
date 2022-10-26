@@ -13,20 +13,20 @@ const Navbar = () =>{
     ]
     return(
         <>
-            <header style={styles.header}>
-                <div style={styles.home}>
+            <header className='header'>
+                <div className='homeLink' >
                     <Link to={'/'}>
-                        <img style={styles.logoNav} src={logo} alt="" />
+                        <img className='logoNav' src={logo} alt="logo" />
                     </Link>
-                    <Link to={'/'} style={styles.linkNav}>
-                        <h2 style={styles.titleNav}>Juanba</h2>
+                    <Link to={'/'} className='linkNav'>
+                        <h2 className='titleNav'>Juanba</h2>
                     </Link>
                 </div>
 
-                <div style={styles.links}>
-                    <Link to={'/order/'} style={styles.Order}><SearchRoundedIcon/>Buscar orden</Link>
+                <div className='linksNav'>
+                    <Link to={'/order/'} className='orderBtn'><SearchRoundedIcon/>Buscar orden</Link>
                     <Nav categorias={categorias}/>
-                    <Link to={'/cart'} style={styles.cartWidget}>
+                    <Link to={'/cart'}>
                         <CartWidget/>
                     </Link>
                 </div>
@@ -36,49 +36,3 @@ const Navbar = () =>{
 }
 
 export default Navbar
-
-const styles = {
-    home:{
-        display:'flex',
-        flexFlow:'row nowrap',
-        alignItems:'center',
-        gap:'5px'
-    },
-    links: {
-        display:'flex',
-        flexFlow:'row nowrap',
-        alignItems:'center',
-        gap:'15px'
-    },
-    Order:{
-        textDecoration:'none',
-        color: '#fffffb',
-        fontWeight:'300',
-        fontSize: '22px',
-        display:'flex',
-    },
-    cartWidget:{
-        color: '#fffffb'
-    },
-    linkNav: {
-        textDecoration:'none',
-    },   
-    titleNav:{
-        color: 'rgb(271, 271, 271)',
-        fontSize: '30px',
-        fontWeight: '200'
-    },
-    logoNav:{
-        width: '3.5rem',
-    },
-    header:{
-        display: 'flex',
-        flexFlow:' row nowrap',
-        backgroundColor: '#f9c197',
-        height: '4rem',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding:' 0 0 0 2rem',
-    }
-
-}
