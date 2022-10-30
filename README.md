@@ -40,3 +40,4 @@ juanba es una empresa dedicada a la venta de zapatillas importadas, la cual requ
 ## links importantes:
   - [repositorio](https://github.com/juanbaquiroga/react)
   - [deploy](https://juanba-juanbaquiroga.vercel.app/)
+  - [video navegando la pagina](https://www.icloud.com/iclouddrive/0a4AhoiA4inRCTM4oU-CYW6Zg#Grabacio%CC%81n_de_pantalla_2022-10-30_a_la(s)_15.28.06)
