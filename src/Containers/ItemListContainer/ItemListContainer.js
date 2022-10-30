@@ -29,7 +29,6 @@ const ItemListContainer = ({greeting}) =>{
             setProducts(lista)
         })
         .catch ((err)=>{
-            console.error(err);
             setError(true);
         })
         .finally(()=>{

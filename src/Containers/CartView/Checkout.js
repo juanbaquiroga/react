@@ -43,8 +43,6 @@ const Checkout = ()=>{
                 })
                 .then(result=>{
                     setSaleId(result.id); 
-                    console.log('hola')
-                    console.log(cart)
                     cart.forEach(producto => {
                         updateStock(producto)
                     });
