@@ -18,16 +18,16 @@ const ItemDetailContainer = () =>{
       const refDoc = doc(productsCollection, id)
       getDoc(refDoc)
         .then((result) => {
-          setProduct({
-            id: result.id,
-            ...result.data(),
-          });
+            setProduct({
+                id: result.id,
+                ...result.data(),
+            });
         })
         .catch (()=>{
-          setError(true);
+            setError(true);
         })
         .finally(()=>{
-          setLoading(false)
+            setLoading(false)
         })
       },[id])
 
@@ -43,5 +43,4 @@ const ItemDetailContainer = () =>{
         </>
     )
 }
-
 export default ItemDetailContainer

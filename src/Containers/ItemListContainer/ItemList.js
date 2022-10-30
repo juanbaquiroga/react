@@ -4,7 +4,7 @@ import Item from "./Item";
 const ItemList = ({products}) =>{
     return(
         <>
-            <div style={styles.itemContainer}>
+            <div className='itemCardContainer'>
             {products.map((product) =>
                 <Item key={product.id} product={product} />
             )}
@@ -14,12 +14,3 @@ const ItemList = ({products}) =>{
 }
 
 export default ItemList
-const styles={
-    itemContainer:{
-        display: 'flex',
-        flexFlow: 'row wrap',
-        justifyContent:'center',
-        gap: '1rem',
-        padding:'30px'
-    },
-}

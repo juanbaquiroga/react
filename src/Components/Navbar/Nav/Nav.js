@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom'
 
 export const Nav = ({ categorias }) => {
     return (
-        <nav className='categories'>
+        <ul className='categories'>
             {categorias.map((categoria) => {
-                return <Link key={categoria.id} className='categoryLink' to={categoria.ruta}>{categoria.nombre}</Link>
+                return <Link className='categoryLink' key={categoria.id}  to={categoria.ruta}>{categoria.nombre}</Link>
             })}
-        </nav>
+        </ul>
     )
 };
 

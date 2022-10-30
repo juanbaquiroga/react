@@ -75,24 +75,24 @@ const Checkout = ()=>{
 
     return(
         <>
-        <div style={styles.container}>
+        <div className="containerForm">
             <>
             {!saleId ?
-                <div style={styles.container2}>
-                    <h2>¡Casi terminamos!</h2>
-                    <h4>Por favor complete todos los campos</h4>
-                    <form onSubmit={endBuy} style={styles.content}>
-                            <input style={styles.input} type="text" placeholder="Nombre" name="name" onChange={clientData} value={client.name}></input>
-                            <input style={styles.input} type="number" placeholder="Telefono" name="phone" onChange={clientData} value={client.phone}></input>
-                            <input style={styles.input} type="email" placeholder="Email" name="email" onChange={clientData} value={client.email}></input>
-                            <input style={styles.input} type="email" placeholder="Email" name="email2" onChange={clientData} value={client.email2}></input>
-                        <button style={styles.button}>Enviar orden</button>
+                <div className="contentForm">
+                    <h2 className="titleForm">¡Casi terminamos!</h2>
+                    <h4 className="subtitleForm">Por favor complete todos los campos</h4>
+                    <form onSubmit={endBuy} className='formCheckout'>
+                            <input className="inputForm" type="text" placeholder="Nombre" name="name" onChange={clientData} value={client.name}></input>
+                            <input className="inputForm" type="number" placeholder="Telefono" name="phone" onChange={clientData} value={client.phone}></input>
+                            <input className="inputForm" type="email" placeholder="Email" name="email" onChange={clientData} value={client.email}></input>
+                            <input className="inputForm" type="email" placeholder="Email" name="email2" onChange={clientData} value={client.email2}></input>
+                        <button className="buttonForm btn">Enviar orden</button>
                     </form>
                 </div>
             :
-                <div style={styles.container2}>
-                    <h2>Muchas gracias por su compra!</h2>
-                    <h4>Su orden de compra es : {saleId}</h4>
+                <div className="contentCheckout">
+                    <h2 className="titleCheckout">Muchas gracias por su compra!</h2>
+                    <h4 className="subtitleCheckout">Su orden de compra es : {saleId}</h4>
                 </div> 
             }
             </>
@@ -101,48 +101,3 @@ const Checkout = ()=>{
     )
 }
 export default Checkout
-
-const styles={
-    title:{
-        fontSize:'300px'
-    },
-    container:{
-        display:'flex',
-        flexFlow:'column nowrap',
-        maxWidth:'600px',
-        padding:'30px 0',
-        backgroundColor:'#f9c197',
-        margin:'40px auto',
-        borderRadius:'20px',
-        boxShadow:'0px 0px 20px 10px rgba(0,0,0,0.066)',
-    },
-    container2:{
-        display:'flex',
-        flexFlow:'column nowrap',
-        alignItems:'center',
-        margin:'40px o',
-        gap:'15px'
-    },
-    content:{
-        display:'flex',
-        flexFlow:'column nowrap',
-        gap:'5px',
-    },
-    button:{
-        backgroundColor:'#fef0e2',
-        color:'#000000',
-        height:'25px',
-        width:'200px',
-        border:'none',
-        borderRadius:'12px',
-        marginTop:'10px',
-
-    },
-    input:{
-        borderRadius:'12px',
-        height:'25px',
-        width:'200px',
-        paddingLeft:'7px',
-        border:'solid 2px rgb(180, 180, 180)'
-    }
-}

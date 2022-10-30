@@ -11,7 +11,7 @@ import OrderContainer from './Containers/orderContainer/OrderContainer';
 import OrderView from './Containers/orderContainer/OrderView';
 
 const App = () =>{
-    const greeting='Hola, bienvenido a ...'
+    const greeting='Hola, bienvenido a Juanba'
 
     
     return(

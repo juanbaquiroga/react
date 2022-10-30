@@ -16,19 +16,19 @@ const OrderContainer = () =>{
         const orderCollection = collection(db, 'sells');
         const refDoc = doc(orderCollection, id)
         getDoc(refDoc)
-          .then((result) => {
-            setOrder({
-              id: result.id,
-              ...result.data(),
-            });
-          })
-          .catch (()=>{
-            setError(true);
-          })
-          .finally(()=>{
-            setLoading(false)
-          })
-    },[id])
+            .then((result) => {
+                setOrder({
+                id: result.id,
+                ...result.data(),
+                });
+            })
+            .catch (()=>{
+                setError(true);
+            })
+            .finally(()=>{
+                setLoading(false)
+            })
+        },[id])
     return(
         <>
             {loading ?(

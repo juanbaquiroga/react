@@ -6,33 +6,13 @@ export function CartItem({product}){
     const subtotal = product.product.price * product.quantity
     return(
         <>
-        <tr style={styles.tableRow}>
-            <td style={styles.tableContent}>{product.product.title}</td>
-            <td style={styles.tableContent}>${product.product.price}</td>
-            <td style={styles.tableContent}>{product.quantity}</td>
-            <td style={styles.tableContent}>${subtotal}</td>
-            <td style={styles.tdRemove} onClick={() => remove(product.product.id)}><button style={styles.buttonRemove}>eliminar</button></td>
+        <tr className='tableContentRow'>
+            <td className='tableContent'>{product.product.title}</td>
+            <td className='tableContent'>${product.product.price}</td>
+            <td className='tableContent'>{product.quantity}</td>
+            <td className='tableContent'>${subtotal}</td>
+            <td className='tdRemoveItem' onClick={() => remove(product.product.id)}><button className='buttonRemoveItem'>eliminar</button></td>
         </tr>
         </>
     );
-}
-const styles ={
-    tableContent:{
-        with:'20%',
-        fontWeigh:'500',
-        padding:'5px 7px',
-        textAling:'right'
-    },
-    tableRow:{
-        backgroundColor: '#fbd1b0',
-        borderBottom:'solid 2px #f9c197'
-    },
-    buttonRemove:{
-        border:'none',
-        background:'none'
-    },
-    tdRemove:{
-        backgroundColor:'#f9c197',
-        padding:'0 10px'
-    }
 }

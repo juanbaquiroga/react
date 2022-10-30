@@ -15,26 +15,26 @@ const ItemListContainer = ({greeting}) =>{
 
 
     useEffect(()=>{
-      const productsCollection = collection(db, 'products');
-      const category = query(productsCollection, where("category", "==", `${id}`));
-      const url = id ? category : productsCollection
-      getDocs(url)
-      .then((data)=>{
-        const lista = data.docs.map((product)=>{
-          return {
-            ...product.data(),
-            id: product.id
-          }
+        const productsCollection = collection(db, 'products');
+        const category = query(productsCollection, where("category", "==", `${id}`));
+        const url = id ? category : productsCollection
+        getDocs(url)
+        .then((data)=>{
+            const lista = data.docs.map((product)=>{
+            return {
+                ...product.data(),
+                id: product.id
+            }
+            })
+            setProducts(lista)
         })
-        setProducts(lista)
-      })
-      .catch ((err)=>{
-        console.error(err);
-        setError(true);
-      })
-      .finally(()=>{
-        setLoading(false)
-      })
+        .catch ((err)=>{
+            console.error(err);
+            setError(true);
+        })
+        .finally(()=>{
+            setLoading(false)
+        })
     },[id])
 
 
@@ -42,9 +42,9 @@ const ItemListContainer = ({greeting}) =>{
         <>
             <h1>{greeting}</h1>
             {loading ?(
-              <>
+            <>
                 <LinearProgress color='inherit'/>
-              </>
+            </>
             ):error ?(
                 <h1>'ocurrio un error'</h1>
             ):(
@@ -54,5 +54,4 @@ const ItemListContainer = ({greeting}) =>{
         </>
     )
 }
-
 export default ItemListContainer

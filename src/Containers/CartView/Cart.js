@@ -11,94 +11,33 @@ export const Cart = () => {
         <>
             {cart.length ? (
                 <>
-                <h1 style={styles.title}>Cart</h1>
-                <table style={styles.table}>
-                <tr style={styles.tableRow}>
-                    <th style={styles.tableContent}>Producto</th>
-                    <th style={styles.tableContent}>Precio Unitario</th>
-                    <th style={styles.tableContent}>Cantidad</th>
-                    <th style={styles.tableContent}>Subtotal</th>
-                    <th style={styles.tableContent}></th>
+                <h1 className='titlePage'>Cart</h1>
+                <table className='table'>
+                <tr className='tableRow'>
+                    <th className='tableTitle'>Producto</th>
+                    <th className='tableTitle'>Precio Unitario</th>
+                    <th className='tableTitle'>Cantidad</th>
+                    <th className='tableTitle'>Subtotal</th>
+                    <th className='finalTableContent'></th>
                 </tr>
                 {cart.map((item) => <CartItem key={cart.id} product={item}/>)}
                 </table>
-                <div style={styles.finalRow}>
-                    <p style={styles.total}>Total: ${totalAmount}</p>
+                <div className='finalRow'>
+                    <p className='totalCart'>Total: ${totalAmount}</p>
                     <div>
-                        <button style={styles.buyCart}><Link style={styles.link} to="/checkout">comprar carrito</Link></button>
-                        <button style={styles.emptyCart} onClick={()=>(reset())}>vaciar carrito</button>
+                        <Link to="/checkout"><button className='buyCart btn'>comprar carrito</button></Link>
+                        <button className='emptyCart btn' onClick={()=>(reset())}>vaciar carrito</button>
                     </div>
                     
                 </div>
                 </>
                 ) : (
                     <>
-                <h1 style={styles.title}>
+                <h1 className='titlePage'>
                     No agregaste productos, puedes ver <Link to="/">aca</Link>
                 </h1>    
                 </>
             )}
         </>
     )
-}
-
-const styles={
-    title:{
-        textAlign:'center'
-    },
-    table:{
-        border:' solid 2px #fbd1b0',
-        width:'90%',
-        margin:'20px 5% 0 5%',
-        borderCollapse:'collapse',
-        backgroundColor: '#fef0e2',
-    },
-    tableRow:{
-        backgroundColor: '#fbd1b0',
-        height:'30px',
-        textAlign:'left'
-    },
-    tableContent:{
-        width:'20%',
-        padding:'5pxx',
-        color:'#ffffff',
-        fontWeight:'650',
-        fontSize:'18px',
-        textAling:'right',
-    },
-    total:{
-        color:'#ffffff',
-        margin:'0',
-        textAling:'right',
-        fontWeight:'700',
-        fontSize:'25px'
-    },
-    finalContent:{
-        width:'100%'
-    },
-    emptyCart:{
-        backgroundColor: '#f9c197',
-        padding:'10px 15px',
-        border:'solid 1px #fbd1b0',
-        borderRadius:'5px'
-    },
-    buyCart:{
-        backgroundColor: '#fce0c9',
-        padding:'10px 15px',
-        border:'solid 1px #fbd1b0',
-        borderRadius:'5px',
-        fontWeight:'400'
-    },
-    link:{
-        textDecoration:'none',
-        color:'#000000'
-    },
-    finalRow:{
-        backgroundColor: '#fbd1b0',
-        width:'90%',
-        margin:'0 5%',
-        padding:'10px',
-        display:'flex',
-        justifyContent:'space-between'
-    }
 }
