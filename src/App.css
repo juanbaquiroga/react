@@ -254,7 +254,6 @@ body{
     width: 240px;
     border-radius: 10px;
     background-color: var(--color05);
-    box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.05);
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -262,6 +261,7 @@ body{
     transition: 200ms;
 }
 .itemCard:hover{
+    box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.06);
     transform: scale(105%);
 }
 .imgCard{
