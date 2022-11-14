@@ -1,6 +1,6 @@
 # Juanba.
 
-Hola, yo soy Juan Bautista Quiroga y me complace presentarles mi proyecto final para el curso de React fr Coder House.
+Hola, yo soy Juan Bautista Quiroga y me complace presentarles mi proyecto 
 
 ---
 
