@@ -6,7 +6,7 @@ import { db } from '../../firebase/firebase';
 import {getDocs, collection, query,where} from 'firebase/firestore'
 
 
-const ItemListContainer = ({greeting}) =>{
+const ItemListContainer = () =>{
     
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
@@ -39,7 +39,6 @@ const ItemListContainer = ({greeting}) =>{
 
     return(
         <>
-            <h1>{greeting}</h1>
             {loading ?(
             <>
                 <LinearProgress color='inherit'/>

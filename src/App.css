@@ -5,12 +5,12 @@
   
 }
 :root{
-    --color01:#f9c197;
-    --color02:#fbd1b0;
-    --color03:#fce0c9;
-    --color04:#fef0e2;
-    --color05:#fffffb; 
-    --black30:#1E1E1E;
+    --color01:#1E88E5;  /* Strong blue */
+    --color02:#42A5F5;  /* Medium blue */
+    --color03:#90CAF9;  /* Light blue */
+    --color04:#E3F2FD;  /* Very light blue */
+    --color05:#fffffb;  /* Original off-white */
+    --black30:#1E1E1E;  /* Original black */
 }
 body{
     background-color: var(--color04);

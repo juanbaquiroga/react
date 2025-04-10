@@ -11,7 +11,6 @@ import OrderContainer from './Containers/orderContainer/OrderContainer';
 import OrderView from './Containers/orderContainer/OrderView';
 
 const App = () =>{
-    const greeting='Hola, bienvenido a Juanba'
 
     
     return(
@@ -20,8 +19,8 @@ const App = () =>{
             <CustomProvider>
                 <Navbar/>
                 <Routes>
-                    <Route path='/' element={<ItemListContainer greeting={greeting}/>}/>
-                    <Route path='/category/:id' element={<ItemListContainer greeting={greeting}/>}/>
+                    <Route path='/' element={<ItemListContainer/>}/>
+                    <Route path='/category/:id' element={<ItemListContainer/>}/>
                     <Route path='/products/:id' element={<ItemDetailContainer/>}/>
                     <Route path='/cart' element={<Cart/>}/>
                     <Route path='/order' element={<OrderView/>}/>
